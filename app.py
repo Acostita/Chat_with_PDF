@@ -6,7 +6,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from htmlTemplate import css, bot_template, user_template
 
 def get_pdf_text(pdf_docs):
@@ -65,7 +65,7 @@ def main():
         st.session_state.chat_history=None
 
     st.header("Chat with multiple PDF :books:")
-    user_question = st.text_input("Ask a question about your documents:")
+    user_question = st.chat_input("Ask a question about your documents:")
 
     if user_question:
         handle_userinput(user_question)
